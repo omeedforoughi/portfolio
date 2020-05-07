@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/siimple@3.3.1/dist/siimple.min.css">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if title %}
+    <title>Portfolio - {{ title }}</title>
+    {% else %}
+    <title>Portfolio</title>
+    {% endif %}
+</head>
+
+<body>
+    <div class="siimple-navbar siimple-navbar--fluid">
+        <a class="siimple-navbar-title" href="{% url 'home' %}">Omeed Foroughi</a>
+        <a class="siimple-navbar-subtitle">Subtitle</a>
+        <div class="siimple--float-right">
+            {% load static %}
+            <a class="siimple-navbar-item siimple-link" href="{% static 'portfolio/resume.png' %}">Resume</a>
+            <a class="siimple-navbar-item siimple-link" href="https://twitter.com/Omeedforoughi">Twitter</a>
+            <a class="siimple-navbar-item siimple-link">Linkedin</a>
+            <a class="siimple-btn siimple-btn--primary" href="{% url 'blog:all_blogs' %}">Blog</a>
+        </div>
+    </div>
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+    <div class="siimple-footer siimple-footer--light">
+        <div class="siimple-grid-row">
+            <div class="siimple-grid-col siimple-grid-col--8">
+                <div class="siimple-footer-title">Portfolio</div>
+                <div class="siimple-footer-subtitle">We make great things!</div>
+            </div>
+            <div class="siimple-grid-col siimple-grid-col--4">
+                <a href="https://www.siimple.xyz/" class="siimple-footer-link">Siimple</a>
+                <a href="https://www.djangoproject.com/" class="siimple-footer-link">Django</a>
+                <a href="https://github.com/omeedforoughi" class="siimple-footer-link">github</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+{% extends 'portfolio/base.html' %}
+{% block content %}
+
+<div class="siimple--text-center">
+    {% load static %}
+    <img src="{% static 'portfolio/Omeed.jpg' %}" class="siimple--width-25 siimple--height-25">
+    <div class="siimple-h3">
+        Omeed is beginner-programmer lives in downtown karaj
+    </div>
+</div>
+
+
+<div class="siimple-grid">
+    <div class="siimple-grid-row">
+        {% for project in projects %}
+        <div class="siimple-grid-col siimple-grid-col--3">
+            <div class="siimple-card" style="max-width:350px;">
+                <div class="siimple-card-body">
+                    <img src="{{ project.image.url}}" alt="" class="siimple--width-100 siimple--height-100">
+                    <div class="siimple-card-title">{{ project.title }}</div>
+                    <div class="siimple-card-subtitle">{{ project.description }}</div>
+                    {% if project.url %}
+                    <div class="siimple-btn siimple-btn--navy siimple-btn--fluid">
+                        <a href=" {{ project.url }} " class="siimple-link">Link</a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'portfolio/base.html' %}
+{% block content %}
+<div class="siimple-content siimple-content--extra-large">
+    <p class="siimple-h2">Omeed written {{ blogs.count }} blog{{ blogs.count|pluralize }}</p>
+    {% for blog in blogs %}
+
+    <div class="siimple-list siimple-list--hover" style="max-width:455px;">
+        <a class="siimple-list-item" href="{% url 'blog:detail' blog.id %}">
+            <div class="siimple-list-title">
+                {{ blog.title }}
+            </div>
+            {{ blog.description|striptags|truncatechars:100 }}
+        </a>
+    </div>
+
+    {% endfor %}
+</div>
+{% endblock %}
+
+
+
+
+<!--{{ blog.date|date:'M d Y'|upper }}-->
